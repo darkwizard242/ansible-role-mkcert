@@ -1,0 +1,10 @@
+---
+# tasks file for mkcert | Debian/Ubuntu Family
+
+- name: Debian/Ubuntu Family | Downloading archive for {{ mkcert_app }} {{ mkcert_version }} to {{ mkcert_bin_path }}
+  ansible.builtin.get_url:
+    url: "{{ mkcert_dl_url }}"
+    dest: "{{ mkcert_bin_path }}/{{ mkcert_app }}"
+    owner: "{{ mkcert_file_owner }}"
+    group: "{{ mkcert_file_group }}"
+    mode: "{{ mkcert_file_mode }}"

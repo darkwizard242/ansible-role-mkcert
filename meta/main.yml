@@ -1,0 +1,32 @@
+---
+galaxy_info:
+  role_name: mkcert
+  author: darkwizard242
+  description: Installs/Uninstalls 'mkcert'. It is a simple tool for making locally-trusted development certificates.
+  company: none
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+        - focal
+        - bionic
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+        - stretch
+    - name: EL
+      versions:
+        - 8
+        - 7
+
+  galaxy_tags:
+    - mkcert
+    - system
+    - os
+    - certificates
+    - certificate
+    - linux

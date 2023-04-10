@@ -1,0 +1,12 @@
+---
+# defaults file for mkcert
+
+mkcert_app: mkcert
+mkcert_version: 1.4.4
+mkcert_os: linux
+mkcert_arch: amd64
+mkcert_dl_url: https://github.com/FiloSottile/{{ mkcert_app }}/releases/download/v{{ mkcert_version }}/{{ mkcert_app }}-v{{ mkcert_version }}-{{ mkcert_os }}-{{ mkcert_arch }}
+mkcert_bin_path: /usr/local/bin
+mkcert_file_owner: root
+mkcert_file_group: root
+mkcert_file_mode: '0755'
