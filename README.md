@@ -2,7 +2,7 @@
 
 # Ansible Role: mkcert
 
-Role to install (_by default_) [mkcert](https://github.com/FiloSottile/mkcert) on **Debian/Ubuntu** and **EL** systems.
+Role to install (_by default_) [mkcert](https://github.com/FiloSottile/mkcert) on **Debian/Ubuntu** and **EL** systems. **mkcert** is a simple tool for making locally-trusted development certificates.
 
 ## Requirements
 
