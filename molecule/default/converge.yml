@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   roles:
-    - role: darkwizard242.awsvault
+    - role: darkwizard242.mkcert
   vars:
     ansible_python_interpreter: /usr/bin/python3
