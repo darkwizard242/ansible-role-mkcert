@@ -17,9 +17,17 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 mkcert_app: mkcert
 mkcert_version: 1.4.4
-mkcert_os: linux
-mkcert_arch: amd64
-mkcert_dl_url: https://github.com/FiloSottile/{{ mkcert_app }}/releases/download/v{{ mkcert_version }}/{{ mkcert_app }}-v{{ mkcert_version }}-{{ mkcert_os }}-{{ mkcert_arch }}
+mkcert_os: "{{ ansible_system | lower }}"
+mkcert_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+mkcert_dl_url: https://github.com/FiloSottile/{{ mkcert_app }}/releases/download/v{{ mkcert_version }}/{{ mkcert_app }}-v{{ mkcert_version }}-{{ mkcert_os }}-{{ mkcert_architecture_map[ansible_architecture] }}
 mkcert_bin_path: /usr/local/bin
 mkcert_file_owner: root
 mkcert_file_group: root
@@ -28,17 +36,17 @@ mkcert_file_mode: '0755'
 
 ### Variables table:
 
-Variable          | Description
------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------
-mkcert_app        | Defines the app to install i.e. **mkcert**
-mkcert_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.4.4**
-mkcert_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
-mkcert_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
-mkcert_dl_url     | Defines URL to download the mkcert binary from.
-mkcert_bin_path   | Defined to dynamically set the appropriate path to store mkcert binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
-mkcert_file_owner | Owner for the binary file of mkcert.
-mkcert_file_group | Group for the binary file of mkcert.
-mkcert_file_mode  | Mode for the binary file of mkcert.
+Variable                | Description
+----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------
+mkcert_app              | Defines the app to install i.e. **mkcert**
+mkcert_version          | Defined to dynamically fetch the desired version to install. Defaults to: **1.4.4**
+mkcert_os               | Defines os type. Used for obtaining the correct type of binaries based on OS type.
+mkcert_architecture_map | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture.
+mkcert_dl_url           | Defines URL to download the mkcert binary from.
+mkcert_bin_path         | Defined to dynamically set the appropriate path to store mkcert binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+mkcert_file_owner       | Owner for the binary file of mkcert.
+mkcert_file_group       | Group for the binary file of mkcert.
+mkcert_file_mode        | Mode for the binary file of mkcert.
 
 ## Dependencies
 
